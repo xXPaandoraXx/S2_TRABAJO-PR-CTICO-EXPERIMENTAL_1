@@ -1,0 +1,74 @@
+# Importar librerías
+import pandas as pd  
+import matplotlib.pyplot as plt  
+
+# Datos de los planetas
+planeta = ['Mercurio','Venus','Tierra','Marte','Júpiter','Saturno','Urano','Neptuno','Plutón']
+lugar = [1,2,3,4,5,6,7,8,9]  
+masa = [0.06,0.82,1.00,0.11,318,95.1,14.6,17.2,0.002]  
+
+# Crear diccionario de datos
+datos = {'Planeta': planeta, 'Posición': lugar, 'Masa': masa}  
+
+# Crear DataFrame
+planetas_ss = pd.DataFrame(datos)  
+
+# Mostrar el DataFrame
+print(planetas_ss)
+
+# Datos de personas
+nombre = ['Paco','Juan','Andrés','Natalia','Vanesa','Miriam','Juan'] 
+color = ['rojo','verde','amarillo','verde','verde','rojo','amarillo'] 
+edad = [24,30,41,22,31,35,22]  
+altura = [182,170,169,183,178,172,164]  
+peso = [74.8,70.1,60.0,75.0,83.9,76.2,68.0]  
+puntuacion = [83,500,20,865,221,413,902]  
+
+# Crear diccionario de datos
+datos = {'Nombres': nombre,
+         'Color': color,
+         'Edad': edad,
+         'Altura': altura,
+         'Peso': peso,
+         'Puntuación': puntuacion}  
+
+# Crear DataFrame
+registro = pd.DataFrame(datos)  
+
+# Mostrar DataFrame
+print(registro)
+
+# Graficar la columna "Edad"
+plt.plot(registro['Edad'], marker='o')  # marker='o' para que se vean los puntos
+plt.title('Edad de las personas')
+plt.xlabel('Registro')
+plt.ylabel('Edad')
+plt.grid(True)
+plt.show()
+
+plt.scatter(registro['Edad'], registro['Peso'])
+plt.title('Edad vs Peso')
+plt.xlabel('Edad')
+plt.ylabel('Peso')
+plt.grid(True)
+plt.show()
+
+# Datos de población
+paises = ['China','India','Estados Unidos','Indonesia','Brasil']
+poblaciones = [1.36, 1.29, 0.33, 0.26, 0.2]
+
+# Crear DataFrame
+poblacion = pd.DataFrame({'Países': paises, 'Población': poblaciones})
+
+# Asignar índice personalizado
+poblacion.index = ['CH','IN','USA','ID','BR']
+
+# Mostrar DataFrame
+print(poblacion)
+
+for etiqueta, fila in poblacion.iterrows(): 
+    print(etiqueta) 
+    print(fila)
+
+for etiqueta, fila in poblacion.iterrows(): 
+    print(etiqueta + ':' + fila['Países'])
